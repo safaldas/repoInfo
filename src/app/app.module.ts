@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 
 import { MaterialModules } from './material.modules';
+import { UserInfoComponent } from './user-info/user-info.component';
 @NgModule({
-  declarations: [AppComponent, SearchComponent],
+  declarations: [AppComponent, SearchComponent, UserInfoComponent],
   imports: [BrowserModule, BrowserAnimationsModule, MaterialModules],
   providers: [],
   bootstrap: [AppComponent]
