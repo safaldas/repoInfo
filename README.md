@@ -1,3 +1,3 @@
 # RepoInfo
 
-This is a project to learn angular
+This is a project to learn angular using fundamental concepts.
