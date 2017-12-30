@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from './search.service';
+import { DataSource } from '@angular/cdk/collections';
 
 
 @Component({
@@ -8,13 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   str: string;
-  constructor() { }
+  user: any;
+  errorMessage: string;
+  repo: string ;
+  private _searchUrl: string;
+  constructor(private _searchservice: SearchService) { }
 
   ngOnInit() {
   }
 
 sendValue(): void {
-console.log(this.str);
+  this._searchUrl = `https://api.github.com/search/repositories?q=${this.str}`;
+  this._searchservice.getUser(this._searchUrl)
+  .subscribe(data => { this.user = data; console.log(data); } , error => this.errorMessage = <any>error);
+
+
+
+
 }
 
   }

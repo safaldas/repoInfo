@@ -3,4 +3,17 @@
   <input [(ngModel)]="str" placeholder="Search">
   <button mat-button color="warn" (click)="sendValue()">Search</button>
   </div>
+  <!-- <div >
+    <li *ngFor="let element of user.items">{{element.full_name}}</li>
+  </div> -->
+
+  <mat-list>
+      <mat-list-item *ngFor="let element of user.items">
+          <mat-icon mat-list-icon>note</mat-icon>
+          <h4 mat-line>{{element.full_name}}</h4>
+          
+        </mat-list-item>
+      </mat-list>
+
 </mat-card>
+
