@@ -1,15 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
-
-import { MaterialModules } from './material.modules';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { NotFoundPageComponent } from './utils/notFoundPage';
+import { MaterialModules } from './material.modules';
+import { routes } from './routes';
+
+export const COMPONENTS = [AppComponent, SearchComponent, UserInfoComponent, NotFoundPageComponent];
 @NgModule({
-  declarations: [AppComponent, SearchComponent, UserInfoComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MaterialModules],
+  declarations: COMPONENTS,
+  imports: [BrowserModule, BrowserAnimationsModule, MaterialModules, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent]
 })
