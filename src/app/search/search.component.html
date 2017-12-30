@@ -1,8 +1,6 @@
 <mat-card>
-  <form class="container">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Search">
-    </mat-form-field>
-    <button mat-button color="warn">Search</button>
-    </form>
-  </mat-card>
+  <div class="container">
+  <input [(ngModel)]="str" placeholder="Search">
+  <button mat-button color="warn" (click)="sendValue()">Search</button>
+  </div>
+</mat-card>
