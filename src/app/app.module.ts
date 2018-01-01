@@ -10,13 +10,18 @@ import { MaterialModules } from './material.modules';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [AppComponent, SearchComponent, UserInfoComponent],
   imports: [BrowserModule,
             BrowserAnimationsModule,
             MaterialModules,
             FormsModule,
-          HttpModule],
+            HttpModule,
+            RouterModule.forRoot([
+              { path: 'search', component: SearchComponent},
+              { path: 'userinfo/:full_name', component: UserInfoComponent},
+              ])],
   providers: [SearchService],
   bootstrap: [AppComponent]
 })

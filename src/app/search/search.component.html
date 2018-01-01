@@ -7,10 +7,10 @@
     <li *ngFor="let element of user.items">{{element.full_name}}</li>
   </div> -->
 
-  <mat-list>
+  <mat-list *ngIf=flag>
       <mat-list-item *ngFor="let element of user.items">
           <mat-icon mat-list-icon>note</mat-icon>
-          <h4 mat-line>{{element.full_name}}</h4>
+          <h4 mat-line><a [routerLink]="['/userinfo', element.full_name]">{{element.full_name}}</a></h4>
           
         </mat-list-item>
       </mat-list>
