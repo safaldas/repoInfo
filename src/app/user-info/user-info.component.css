@@ -3,8 +3,15 @@
 }
 
 .repoDescription {
-  background-color: pink;
+  background-color: rgb(91, 102, 133);
   text-align: center;
   border-color: gray;
   border-radius: 12px;
+}
+.picDiv{
+  /* background-color: rgb(86, 86, 126); */
+}
+
+.detailDiv{
+  /* background-color: rgb(90, 90, 124); */
 }

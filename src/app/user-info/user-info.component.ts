@@ -44,15 +44,15 @@ export class UserInfoComponent implements OnInit {
 
   userDetails = userData;
   errorMessage : string;
-  userData : any;
+  userDatas : any;
 
   constructor(private _userInfoService: UserInfoService) { }
 
   ngOnInit() {
     console.log(this.userDetails.owner.url);
     this._userInfoService.getUserDetails(this.userDetails.owner.url)
-    .subscribe(datas =>  {this.userData = datas;
-      console.log("USER:"+this.userData);},
+    .subscribe(datas =>  {this.userDatas = datas;
+      console.log("USER:"+this.userDatas);},
     error => this.errorMessage = <any>error);;
   }
 
