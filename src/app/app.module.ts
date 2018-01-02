@@ -11,9 +11,10 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {UserInfoService } from './user-info/user-info.service'
+import {UserInfoService } from './user-info/user-info.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 @NgModule({
-  declarations: [AppComponent, SearchComponent, UserInfoComponent],
+  declarations: [AppComponent, SearchComponent, UserInfoComponent, PageNotFoundComponent],
   imports: [BrowserModule,
             BrowserAnimationsModule,
             MaterialModules,
@@ -22,6 +23,8 @@ import {UserInfoService } from './user-info/user-info.service'
             RouterModule.forRoot([
               { path: 'search', component: SearchComponent},
               { path: 'userinfo/:full_name', component: UserInfoComponent},
+              { path: '' , redirectTo:'search', pathMatch: 'full' },
+              { path: '*' , component: PageNotFoundComponent }
               ])],
   providers: [SearchService,
     UserInfoService],
