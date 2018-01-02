@@ -11,7 +11,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {UserInfoService } from './user-info.service'
+import {UserInfoService } from './user-info/user-info.service'
 @NgModule({
   declarations: [AppComponent, SearchComponent, UserInfoComponent],
   imports: [BrowserModule,
