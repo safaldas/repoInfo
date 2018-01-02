@@ -1,19 +1,23 @@
 <div class="container ">
-  <div class="row">
+  <div class="row" *ngIf = 'userData'>
       <div class="col-sm-5 picDiv">
-          <img [src] = "userData.avatar_url" alt="No Photo to be displayed" width="200px" height= "200px" >
-       </div>
-       <div class="col-sm-5 detailDiv" *ngIf = 'userDetails'>
-          <h2> <a target="_blank" [href]="userData.html_url">{{userDetails.full_name}}</a> <br> </h2>
-            {{userDetails.description}} <br><br>
-         <b>Language : </b> {{userDetails.language}} <br>
-         <b>Score : </b> {{userDetails.score}} <br>
-         
+        <div>
+          <br>
+           <img [src] = "userData.owner.avatar_url" alt="No Photo to be displayed" width="200px" height= "200px" >
+           <h3><a [href]="userData.owner.html_url">{{userData.owner.login}}</a></h3>
+        </div>
+      </div>
+       <div class="col-sm-5 detailDiv" >
+          <h2> <a target="_blank" [href]="userData.html_url">{{userData.full_name}}</a> <br> </h2>
+            {{userData.description}} <br><br>
+         <b>Language : </b> {{userData.language}} <br>
+         <b>Forks count : </b> {{userData.forks}} <br>
+         <b>Watchers count : </b> {{userData.watchers}} <br>
        </div>
   </div>
   <br><br>
   <!-- <div class="repoDescription">
-      <!-- {{userDetails.owner.url}} -->
+      {{userDetails.owner.url}} -->
       <!-- <br><br><br>
   </div> --> 
 </div>
