@@ -24,7 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
               { path: 'search', component: SearchComponent},
               { path: 'userinfo/:full_name', component: UserInfoComponent},
               { path: '' , redirectTo:'search', pathMatch: 'full' },
-              { path: '*' , component: PageNotFoundComponent }
+              { path: '**' , component: PageNotFoundComponent }
               ])],
   providers: [SearchService,
     UserInfoService],
