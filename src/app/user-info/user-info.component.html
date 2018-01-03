@@ -1,19 +1,23 @@
-<mat-card>
-  <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card class="user-info-card">
-    <mat-card-header>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</mat-card>
+<div class="container ">
+  <div class="row" *ngIf = 'userData'>
+      <div class="col-sm-5 picDiv">
+        <div>
+          <br>
+           <img [src] = "userData.owner.avatar_url" alt="No Photo to be displayed" width="200px" height= "200px" >
+           <h3><a [href]="userData.owner.html_url">{{userData.owner.login}}</a></h3>
+        </div>
+      </div>
+       <div class="col-sm-5 detailDiv" >
+          <h2> <a target="_blank" [href]="userData.html_url">{{userData.full_name}}</a> <br> </h2>
+            {{userData.description}} <br><br>
+         <b>Language : </b> {{userData.language}} <br>
+         <b>Forks count : </b> {{userData.forks}} <br>
+         <b>Watchers count : </b> {{userData.watchers}} <br>
+       </div>
+  </div>
+  <br><br>
+  <!-- <div class="repoDescription">
+      {{userDetails.owner.url}} -->
+      <!-- <br><br><br>
+  </div> --> 
+</div>

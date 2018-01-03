@@ -1,1 +1,19 @@
-<mat-card>hello</mat-card>
+<mat-card>
+  <div class="container">
+  <input [(ngModel)]="str" placeholder="Search">
+  <button mat-button color="warn" (click)="sendValue()">Search</button>
+  </div>
+  <!-- <div >
+    <li *ngFor="let element of user.items">{{element.full_name}}</li>
+  </div> -->
+
+  <mat-list *ngIf=user>
+      <mat-list-item *ngFor="let element of user.items">
+          <mat-icon mat-list-icon>note</mat-icon>
+          <h4 mat-line><a [routerLink]="['/userinfo', element.full_name]">{{element.full_name}}</a></h4>
+          
+        </mat-list-item>
+      </mat-list>
+
+</mat-card>
+
