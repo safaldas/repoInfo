@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfoService } from '../user-info.service';
+import { UserInfoService } from './user-info.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from '../search/search.service';
 
@@ -10,19 +10,23 @@ import { SearchService } from '../search/search.service';
 })
 
 export class UserInfoComponent implements OnInit {
-  user: any;
+  userRepo : string;
   errorMessage: string;
-
-  url = 'https://api.github.com/repos/dtrupenn/Tetris';
+  url: string;
   userData : any;
 
-  constructor(private _userInfoService: UserInfoService) { }
+  constructor(private _userInfoService: UserInfoService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.userRepo = this._route.snapshot.params['full_name'];
+    this.url = `https://api.github.com/repos/${this.userRepo}`;
+    console.log("URL"+this.url);
+    console.log("userReppo"+this.userRepo);
     this._userInfoService.getUserDetails(this.url)
     .subscribe(datas =>  {this.userData = datas;
       console.log("USER:"+this.userData);},
-    error => this.errorMessage = <any>error);;
+    error => this.errorMessage = <any>error);
+
   }
 
   // getUserInfo(name: string) {
