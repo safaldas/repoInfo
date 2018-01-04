@@ -12,6 +12,7 @@ import { MaterialModules } from './material.modules';
 import { HttpModule } from '@angular/http';
 import { UserInfoService } from './user-info/user-info.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [AppComponent, SearchComponent, UserInfoComponent, PageNotFoundComponent],
   imports: [
@@ -20,6 +21,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     MaterialModules,
     HttpModule,
+    AuthModule,
     RouterModule.forRoot([
       { path: 'search', component: SearchComponent },
       { path: 'userinfo/:full_name', component: UserInfoComponent },
