@@ -3,9 +3,15 @@ import {
   Output,
   Component,
   OnInit,
-  Input
+  Input,
+  Inject
 } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 import { Authenticate } from '../../../models/user';
 
 @Component({
@@ -14,12 +20,14 @@ import { Authenticate } from '../../../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl('')
-  });
+  form: FormGroup;
 
-  constructor() {}
+  constructor(@Inject(FormBuilder) fb: FormBuilder) {
+    this.form = fb.group({
+        username: ["name",Validators.minLength(4)],
+        password: 'password'
+    })
+  }
   //these are coming from the parent
   @Input()
   set pending(isPending: boolean) {
@@ -35,7 +43,7 @@ export class LoginComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       console.log(this.form.value);
-      this.submitted.emit(this.form.value)
+      this.submitted.emit(this.form.value);
     }
   }
 }
