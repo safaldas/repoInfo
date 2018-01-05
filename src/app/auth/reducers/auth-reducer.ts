@@ -19,7 +19,7 @@ export const initialState: State = {
  * This reducer sets Login Success and Login Failure
  */
 
-export function reducer(
+export function authReducer(
   state = initialState,
   action: AuthActions
 ): State {
